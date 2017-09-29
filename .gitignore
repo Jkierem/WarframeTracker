@@ -1,5 +1,8 @@
 ### Custom Files ###
 *.sh
+createComponent
+todos
+php/
 
 ## Node ###
 # Logs
@@ -87,7 +90,3 @@ $RECYCLE.BIN/
 
 /src/semantic/dist/*
 /src/semantic/tasks/*
-
-### Other ###
-
-createComponent
