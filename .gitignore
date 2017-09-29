@@ -3,6 +3,7 @@
 createComponent
 todos
 php/
+.env
 
 ## Node ###
 # Logs

@@ -1,9 +1,6 @@
 import React from 'react'
 import AlertContainer from '../AlertContainer'
 
-//let dev = "../../php/warframe.php"
-let local = "http://localhost:80"
-
 class WarframeContainer extends React.Component{
 	constructor(props){
 		super(props);
@@ -32,7 +29,7 @@ class WarframeContainer extends React.Component{
 				})
 			}
 		};
-		xhttp.open("GET", local, true);
+		xhttp.open("GET", process.env.REACT_APP_INFO_HOST, true);
 		xhttp.send();
 	}
 
