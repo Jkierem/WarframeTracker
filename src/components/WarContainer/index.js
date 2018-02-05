@@ -8,7 +8,7 @@ class WarContainer extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			xml: Utils.parseXML(this.props.xml),
+			xml: Utils.parseXML(this.props.xml,{ transform:(xml)=>(xml.rss.channel.item) }),
 			json: Utils.parseJSON(this.props.json)
 		}
 	}
@@ -19,7 +19,6 @@ class WarContainer extends React.Component{
 	}
 
 	render(){
-		console.log(this.props);
 		console.log(this.state);
 		return(
 			<div>Hi oh</div>

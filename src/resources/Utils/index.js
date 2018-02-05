@@ -40,12 +40,21 @@ export const xmlToJson = (xml , options={} ) => {
 
 
 export const parseXML = (response , options={} ) =>{
-  const { convert=true } = options;
+  const { convert=true , transform=false } = options;
   let parser = new DOMParser();
   let xmlDoc = parser.parseFromString(response,"text/xml");
-  return convert === true ? xmlToJson(xmlDoc) : xmlDoc ;
+	let rawJson = (convert === true) ? xmlToJson(xmlDoc) : xmlDoc ;
+	if( typeof(transform) === "function" ){
+		rawJson = transform(rawJson);
+	}
+  return rawJson
 }
 
-export const parseJSON = (response) =>{
-  return JSON.parse(response)
+export const parseJSON = (response, options={}) =>{
+	const { transform=false } = options;
+	let rawJSON = JSON.parse(response)
+	if( typeof(transform) === "function" ){
+		rawJSON = transform(rawJSON)
+	}
+  return rawJSON
 }
